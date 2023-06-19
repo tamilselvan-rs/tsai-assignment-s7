@@ -1,7 +1,7 @@
 # TSAI Assignment 7
 
 ## Question 1
----
+
 For your first attempt, please share your:
 
 - Targets  
@@ -14,7 +14,7 @@ For your first attempt, please share your:
 - No limit on number of parameters
 - RF >= 20
 
-> Attempt 1
+### __Attempt 1__
 
 ### Result (Within 15 Epoch)
 | Metric              | Output |
@@ -37,7 +37,7 @@ File Link:
 [Base Model](model-base/S7-Base.ipynb)
 
 
-> Attempt 2
+### __Attempt 2__
 
 ### Result (Within 15 Epoch)
 | Metric              | Output |
@@ -59,7 +59,6 @@ File Link:
 [Batch 128](model-batch-128/S7-BS-128.ipynb)
 
 ## Question 2
----
 
 For your second attempt, please share your:
 
@@ -71,7 +70,7 @@ For your second attempt, please share your:
 ### Target
 - No of Parameters <= 8000
 
-> Attempt 1
+### __Attempt 1__
 
 ### Result (within Epoch 15)
 | Metric              | Output |
@@ -92,7 +91,7 @@ For your second attempt, please share your:
 File Link:
 [Model with GAP](model-gap/S7-GAP.ipynb)
 
-> Attempt 2
+### __Attempt 2__
 
 ### Result (within Epoch 15)
 | Metric              | Output |
@@ -116,7 +115,7 @@ File Link:
 
 
 ## Question 3
----
+
 For your third attempt, please share your:
 
 - Targets  
@@ -149,25 +148,25 @@ File Link:
 
 
 ## Question 4
----
+
 What is the minimum value of Dropout have you used? (Mention 0.0 if you haven't used dropout anywhere)
 
 0.1
 
 ## Question 5
----
+
 What is the Receptive field of your Fifth Model? Use the new formula we covered in class. 
 
 28
 
 ## Question 6
----
+
 Have you used Data Augmentation (like rotation)?
 
 Yes
 
 ## Question 7
----
+
 How many parameters your final model has? (this awards only those who out-performed the assignment target) 
 
 7992
