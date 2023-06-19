@@ -33,9 +33,11 @@ For your first attempt, please share your:
 - Applying Dropout 10% of after input block significantly affects accuracy (possibly due to avg pooling following it)
 
 
-File Link:
-[Base Model](model-base/S7-Base.ipynb)
+File Link:  
+[Base Model](model-base/model.py)  
+[ipynb](model-base/S7-Base.ipynb)
 
+---
 
 ### __Attempt 2__
 
@@ -55,8 +57,9 @@ File Link:
 - Number of parameters are too high for the assignment target
 - Model is beautiful primarily because the train accuracy improvements are transferred to test accuracy
 
-File Link:
-[Batch 128](model-batch-128/S7-BS-128.ipynb)
+File Link:  
+[Batch 128](model-batch-128/model.py)  
+[ipynb](model-batch-128/S7-BS-128.ipynb)
 
 ## Question 2
 
@@ -88,8 +91,11 @@ For your second attempt, please share your:
 - #of parameters saw a dip of 2K still too high 
 - Model isn't overfitting but training accuracy has suffered
 
-File Link:
-[Model with GAP](model-gap/S7-GAP.ipynb)
+File Link:  
+[Model with GAP](model-gap/model.py)  
+[ipynb](model-gap/S7-GAP.ipynb)
+
+---
 
 ### __Attempt 2__
 
@@ -110,8 +116,9 @@ File Link:
 - Model is achieving 99.4 consistently from 16th Epoch
 - Number of parameters is under allowed limit
 
-File Link:
-[GAP with More Conv](model-gap-conv-4/S7-GAP-Conv4.ipynb)
+File Link:  
+[GAP with More Conv](model-gap-conv-4/model.py)  
+[ipynb](model-gap-conv-4/S7-GAP-Conv4.ipynb)
 
 
 ## Question 3
@@ -143,8 +150,9 @@ For your third attempt, please share your:
 - Model isn't overfitting
 - Achieved 99.4 in 16th Epoch onwards
 
-File Link:
-[Model with Data Augmentation](model-data-aug/S7-GAP-Data-Aug.ipynb)
+File Link:  
+[Model with Data Augmentation](model-data-aug/model.py)  
+[ipynb](model-data-aug/S7-GAP-Data-Aug.ipynb)
 
 
 ## Question 4
