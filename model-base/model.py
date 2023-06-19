@@ -1,9 +1,30 @@
 import torch.nn as nn
 import torch.nn.functional as F
 
-#https://www.kaggle.com/code/samuelcortinhas/mnist-cnn-data-augmentation-99-6-accuracy
-#https://colab.research.google.com/github/tensorflow/examples/blob/master/lite/codelabs/digit_classifier/ml/step7_improve_accuracy.ipynb#scrollTo=2V0KsvSLVE6I
 
+'''
+Model Params
+------------
+Best Train Accuracy: 98.95%
+Best Test Accuracy: 99.43%
+# of Parameters: 17,332
+RF Out: 26
+Batch Size: 512
+LR: 0.02
+
+Target
+------
+- 99.4% Accuracy
+- No limit on number of parameters
+- RF >= 20
+
+Insights
+--------
+- Model isn't overfitting
+- Tried adjusting the LR and got 99.4% at 0.02
+- Number of parameters are too high for the assignment target
+- Applying Dropout 10% of after input block significantly affects accuracy (possibly due to avg pooling following it)
+'''
 
 class Net(nn.Module):
     #This defines the structure of the NN.
@@ -19,9 +40,11 @@ class Net(nn.Module):
         self.conv1 = nn.Sequential(
             nn.Conv2d(1, 32, kernel_size=3),
             nn.BatchNorm2d(32),
-            nn.ReLU())
+            nn.ReLU()
+        )
         
         '''
+        Considering the pixels are continuous taking an average at RF3 should help cutdown unnecessary whites 
         Transition Block 1
         In => 26 * 26 * 32
         Out => 13 * 13 * 32
@@ -48,9 +71,10 @@ class Net(nn.Module):
             nn.ReLU(),
             nn.Dropout(0.1)
         )
-
      
         '''
+        Transition Block 2
+        RF 8 => Possibly edges are detected
         Transition Block 2
         In => 11 * 11 * 32
         Out => 6 * 6 * 32
@@ -64,12 +88,13 @@ class Net(nn.Module):
         
         '''
         Conv Block 3
-        In => 11 * 11 * 32
-        Out => 6 * 6 * 32
-        Stride In => 2
-        Jin => 2
+        Squeeze after an expansion
+        In => 6 * 6 * 32
+        Out => 4 * 4 * 16
+        Stride In => 1
+        Jin => 4
         Jout => 4
-        RF => 10 
+        RF => 18 
         '''
         self.conv3 = nn.Sequential(
             nn.Conv2d(32, 16, kernel_size=3),
@@ -78,7 +103,15 @@ class Net(nn.Module):
             nn.Dropout(0.1)
         )
 
-        
+        '''
+        Conv Block 4 - Output Layer
+        In => 4 * 4 * 16
+        Out => 2 * 2 * 16
+        Strde In => 1
+        Jin => 4
+        Jout => 4
+        RF => 26
+        '''
         self.conv4 = nn.Sequential(
             nn.Conv2d(16, 16, kernel_size=3),
             nn.ReLU()

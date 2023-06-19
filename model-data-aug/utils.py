@@ -41,10 +41,11 @@ def get_dst_device():
 
 def get_train_transforms():
     return transforms.Compose([
-        transforms.RandomApply([transforms.CenterCrop(22), ], p=0.1),
+        transforms.RandomApply([
+            transforms.RandomAffine(degrees=(0, 0), translate=(0.1, 0.1), fill=0)
+        ], p=0.2),
         transforms.Resize((28, 28)),
-        transforms.RandomRotation((-7.0, 7.0), fill=(1,)),
-        # transforms.Ran
+        transforms.RandomRotation((-7., 7.), fill=0),
         transforms.ToTensor(),
         transforms.Normalize((0.1307,), (0.3081,)),
     ])
